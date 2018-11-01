@@ -54,6 +54,19 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.insert(insertee)
         self.assertEqual(insertee, bst.right)
 
+    def test_insert_values_under_children(self):
+        '''
+        If a root already has children, the child will insert instead
+        '''
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(25)
+        insertee = BinarySearchTree(10)
+        insertee2 = BinarySearchTree(30)
+        bst.insert(child)
+        bst.insert(insertee)
+        bst.insert(insertee2)
+        self.assertEqual(insertee, child.left)
+        self.assertEqual(insertee2, child.right)
 
 if __name__ == '__main__':
     unittest.main()

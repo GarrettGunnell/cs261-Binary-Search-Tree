@@ -9,6 +9,12 @@ class BinarySearchTree:
 
     def insert(self, child):
         if child.value > self.value:
-            self.right = child
+            if self.right == None:
+                self.right = child
+            else:
+                self.right.insert(child)
         else:
-            self.left = child
+            if self.left == None:
+                self.left = child
+            else:
+                self.left.insert(child)
