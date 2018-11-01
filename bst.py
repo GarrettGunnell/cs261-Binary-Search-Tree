@@ -7,3 +7,8 @@ class BinarySearchTree:
         self.left = None
         self.right = None
 
+    def insert(self, child):
+        if child.value > self.value:
+            self.right = child
+        else:
+            self.left = child
