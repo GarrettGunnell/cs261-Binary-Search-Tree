@@ -8,6 +8,15 @@ class BinarySearchTree:
         self.left = None
         self.right = None
 
+    def has_left_child(self):
+        return self.left != None
+
+    def has_right_child(self):
+        return self.right != None
+
+    def is_leaf(self):
+        return self.right == None and self.left == None
+
     def insert(self, child):
         if child.value > self.value:
             if self.right == None:
