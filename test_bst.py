@@ -75,5 +75,18 @@ class TestBinarySearchTree(unittest.TestCase):
         self.assertEqual(insertee, child.left)
         self.assertEqual(insertee2, child.right)
 
+    def test_inserted_children_point_to_their_parent(self):
+        '''
+        When a child is inserted, it should point to its parent.
+        '''
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(25)
+        insertee = BinarySearchTree(20)
+        bst.insert(child)
+        bst.insert(insertee)
+        self.assertEqual(bst, child.parent)
+        self.assertEqual(child, insertee.parent)
+
+
 if __name__ == '__main__':
     unittest.main()

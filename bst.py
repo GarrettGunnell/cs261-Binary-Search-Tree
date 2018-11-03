@@ -12,10 +12,14 @@ class BinarySearchTree:
         if child.value > self.value:
             if self.right == None:
                 self.right = child
+                self.right.parent = self
             else:
                 self.right.insert(child)
+                self.right.parent = self
         else:
             if self.left == None:
                 self.left = child
+                self.left.parent = self
             else:
                 self.left.insert(child)
+                self.left.parent = self
