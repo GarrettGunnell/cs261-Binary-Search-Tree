@@ -105,6 +105,36 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.insert(child)
         self.assertEqual(True, child.is_leaf())
 
+    '''
+    Finding
+    '''
+
+    def test_find(self):
+        '''
+        A Binary Search Tree can find a node based on its value and return it.
+        '''
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(20)
+        child2 = BinarySearchTree(15)
+        child3 = BinarySearchTree(25)
+        bst.insert(child)
+        bst.insert(child2)
+        bst.insert(child3)
+        self.assertEqual(child, bst.find(20))
+        self.assertEqual(child2, bst.find(15))
+        self.assertEqual(child3, bst.find(25))
+
+    def test_find_returns_none_if_no_value_in_tree(self):
+        '''
+        A Binary Search Tree will return None if the value is not in the tree.
+        '''
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(25)
+        bst.insert(child)
+        self.assertEqual(None, bst.find(20))
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
