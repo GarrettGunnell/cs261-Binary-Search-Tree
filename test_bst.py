@@ -32,6 +32,13 @@ class TestBinarySearchTree(unittest.TestCase):
         self.assertEqual(None, bst.left)
         self.assertEqual(None, bst.right)
 
+    def test_parent_initially_none(self):
+        '''
+        A Binary Search Tree has a parent initially set to none
+        '''
+        bst = BinarySearchTree()
+        self.assertEqual(None, bst.parent)
+
     '''
     Insertion
     '''

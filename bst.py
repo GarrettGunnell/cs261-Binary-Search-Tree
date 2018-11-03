@@ -1,9 +1,10 @@
-#Binary Search Tree implementation
-#Garrett Gunnell
+# Binary Search Tree implementation
+# Garrett Gunnell
 
 class BinarySearchTree:
     def __init__(self, value = None):
         self.value = value
+        self.parent = None
         self.left = None
         self.right = None
 
