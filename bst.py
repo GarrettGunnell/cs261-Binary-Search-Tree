@@ -32,3 +32,13 @@ class BinarySearchTree:
             else:
                 self.left.insert(child)
                 self.left.parent = self
+
+    def find(self, value):
+        if value == self.value:
+            return self
+        elif self.is_leaf():
+            return None
+        elif value > self.value:
+            return self.right.find(value)
+        elif value < self.value:
+            return self.left.find(value)
