@@ -87,6 +87,24 @@ class TestBinarySearchTree(unittest.TestCase):
         self.assertEqual(bst, child.parent)
         self.assertEqual(child, insertee.parent)
 
+    def test_has_right_child(self):
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(75)
+        bst.insert(child)
+        self.assertEqual(True, bst.has_right_child())
+
+    def test_has_left_child(self):
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(25)
+        bst.insert(child)
+        self.assertEqual(True, bst.has_left_child())
+
+    def test_is_leaf(self):
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(25)
+        bst.insert(child)
+        self.assertEqual(True, child.is_leaf())
+
 
 if __name__ == '__main__':
     unittest.main()
