@@ -1,6 +1,7 @@
 import unittest
 from bst import BinarySearchTree
 
+
 class TestBinarySearchTree(unittest.TestCase):
 
     '''
@@ -133,7 +134,22 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.insert(child)
         self.assertEqual(None, bst.find(20))
 
+    '''
+    Traversal
+    '''
 
+    def test_pre_order(self):
+        l = (45, 70, 23, 20, 24, 75, 65, 47)
+        bst = BinarySearchTree(50)
+
+        for i in range(len(l)):
+            child = BinarySearchTree(i)
+            bst.insert(child)
+
+        solution_list = (50, 45, 23, 20, 24, 47, 70, 65, 75)
+        test_list = ()
+        bst.preorder(test_list)
+        self.assertEqual(solution_list, test_list)
 
 
 if __name__ == '__main__':
