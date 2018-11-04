@@ -202,6 +202,40 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.find(25).delete()
         self.assertEqual(None, bst.left)
 
+    def test_delete_root_with_one_child_on_left(self):
+        '''
+        A Binary Search Tree with one child will replace itself with its child when deleted.
+        '''
+
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(25)
+        child2 = BinarySearchTree(20)
+        child3 = BinarySearchTree(15)
+
+        bst.insert(child)
+        bst.insert(child2)
+        bst.insert(child3)
+        bst.find(25).delete()
+
+        self.assertEqual(bst.left, child2)
+
+    def test_delete_root_with_one_child_on_right(self):
+        '''
+        A Binary Search Tree with one child will replace itself with its child when deleted.
+        '''
+
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(75)
+        child2 = BinarySearchTree(80)
+        child3 = BinarySearchTree(85)
+
+        bst.insert(child)
+        bst.insert(child2)
+        bst.insert(child3)
+        bst.find(75).delete()
+
+        self.assertEqual(bst.right, child2)
+
 
 if __name__ == '__main__':
     unittest.main()

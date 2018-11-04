@@ -69,9 +69,28 @@ class BinarySearchTree:
             self.right.inorder(list_)
 
     def delete(self):
-        if self.parent.left is self:
-            self.parent.left = None
-            del self
-        elif self.parent.right is self:
-            self.parent.right = None
-            del self
+        if self.is_leaf():
+            if self.parent.left is self:
+                self.parent.left = None
+                del self
+            elif self.parent.right is self:
+                self.parent.right = None
+                del self
+        elif self.has_left_child() and self.right is None:
+            if self.parent.left is self:
+                self.parent.left = self.left
+                self.left.parent = self.parent
+                del self
+            elif self.parent.right is self:
+                self.parent.right = self.left
+                self.left.parent = self.parent
+                del self
+        elif self.has_right_child() and self.left is None:
+            if self.parent.left is self:
+                self.parent.left = self.right
+                self.left.parent = self.parent
+                del self
+            elif self.parent.right is self:
+                self.parent.right = self.right
+                self.right.parent = self.parent
+                del self
