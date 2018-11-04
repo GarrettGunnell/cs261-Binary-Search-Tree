@@ -236,6 +236,18 @@ class TestBinarySearchTree(unittest.TestCase):
 
         self.assertEqual(bst.right, child2)
 
+    def test_delete_root_with_two_children(self):
+        '''
+        A Binary Search Tree with two children will find a successor to replace itself.
+        '''
+        values = [50, 150, 25, 10, 30, 75, 70, 80, 125, 110, 130, 175, 160, 200]
+        bst = BinarySearchTree(100)
+        for i in values:
+            bst.insert(i)
+
+        bst.find(50).delete()
+        self.assertEqual(bst.find(70), bst.left)
+
 
 if __name__ == '__main__':
     unittest.main()
