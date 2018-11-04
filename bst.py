@@ -67,3 +67,11 @@ class BinarySearchTree:
 
         if self.has_right_child():
             self.right.inorder(list_)
+
+    def delete(self):
+        if self.parent.left is self:
+            self.parent.left = None
+            del self
+        elif self.parent.right is self:
+            self.parent.right = None
+            del self
