@@ -43,3 +43,11 @@ class BinarySearchTree:
             return self.right.find(value)
         elif value < self.value:
             return self.left.find(value)
+
+    def preorder(self, list_):
+        list_.append(self.value)
+
+        if self.has_left_child():
+            self.left.preorder(list_)
+        if self.has_right_child():
+            self.right.preorder(list_)

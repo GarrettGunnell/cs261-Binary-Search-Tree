@@ -139,15 +139,19 @@ class TestBinarySearchTree(unittest.TestCase):
     '''
 
     def test_pre_order(self):
-        l = (45, 70, 23, 20, 24, 75, 65, 47)
+        '''
+        A Binary Search Tree can put its contents into a list in preorder.
+        '''
+
+        l = [45, 70, 23, 20, 24, 75, 65, 47]
         bst = BinarySearchTree(50)
 
-        for i in range(len(l)):
+        for i in l:
             child = BinarySearchTree(i)
             bst.insert(child)
 
-        solution_list = (50, 45, 23, 20, 24, 47, 70, 65, 75)
-        test_list = ()
+        solution_list = [50, 45, 23, 20, 24, 47, 70, 65, 75]
+        test_list = []
         bst.preorder(test_list)
         self.assertEqual(solution_list, test_list)
 
