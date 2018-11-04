@@ -171,6 +171,22 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.postorder(test_list)
         self.assertEqual(solution_list, test_list)
 
+    def test_in_order(self):
+        '''
+        A Binary Search Tree can put its contents into a list in order.
+        '''
+        l = [45, 70, 23, 20, 24, 75, 65, 47]
+        bst = BinarySearchTree(50)
+
+        for i in l:
+            child = BinarySearchTree(i)
+            bst.insert(child)
+
+        solution_list = [20, 23, 24, 45, 47, 50, 65, 70, 75]
+        test_list = []
+        bst.inorder(test_list)
+        self.assertEqual(solution_list, test_list)
+
 
 if __name__ == '__main__':
     unittest.main()
