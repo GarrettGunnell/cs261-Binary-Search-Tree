@@ -51,3 +51,10 @@ class BinarySearchTree:
             self.left.preorder(list_)
         if self.has_right_child():
             self.right.preorder(list_)
+
+    def postorder(self, list_):
+        if self.has_left_child():
+            self.left.postorder(list_)
+        if self.has_right_child():
+            self.right.postorder(list_)
+        list_.append(self.value)
