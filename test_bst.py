@@ -187,6 +187,21 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.inorder(test_list)
         self.assertEqual(solution_list, test_list)
 
+    '''
+    Deletion
+    '''
+
+    def test_delete_leaf(self):
+        '''
+        A Binary Search Tree can delete a leaf and set its parent's pointer to it to none.
+        '''
+
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(25)
+        bst.insert(child)
+        bst.find(25).delete()
+        self.assertEqual(None, bst.left)
+
 
 if __name__ == '__main__':
     unittest.main()
