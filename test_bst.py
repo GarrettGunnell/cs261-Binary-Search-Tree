@@ -245,21 +245,36 @@ class TestBinarySearchTree(unittest.TestCase):
         child = BinarySearchTree(25)
         child2 = BinarySearchTree(20)
         child3 = BinarySearchTree(15)
+        child4 = BinarySearchTree(17)
 
         bst.insert(child)
         bst.insert(child2)
         bst.insert(child3)
+        bst.insert(child4)
 
         self.assertEqual(child3, bst.find_minimum())
+
+    def test_find_successor(self):
+        '''
+        A Binary Search Tree can find a node to replace itself.
+        '''
+        values = [50, 150, 25, 10, 30, 75, 70, 80, 125, 110, 130, 175, 160, 200]
+        bst = BinarySearchTree(100)
+        for i in values:
+            bst.insert(BinarySearchTree(i))
+
+        self.assertEqual(bst.find(50).find_successor(), bst.find(70))
+
 
     def test_delete_root_with_two_children(self):
         '''
         A Binary Search Tree with two children will find a successor to replace itself.
         '''
+
         values = [50, 150, 25, 10, 30, 75, 70, 80, 125, 110, 130, 175, 160, 200]
         bst = BinarySearchTree(100)
         for i in values:
-            bst.insert(i)
+            bst.insert(BinarySearchTree(i))
 
         bst.find(50).delete()
         self.assertEqual(bst.find(70), bst.left)

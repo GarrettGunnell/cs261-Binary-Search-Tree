@@ -68,11 +68,17 @@ class BinarySearchTree:
         if self.has_right_child():
             self.right.inorder(list_)
 
-    def find_successor(self):
+    def find_minimum(self):
         if self.is_leaf():
             return self
+        elif self.has_left_child():
+            return self.left.find_minimum()
         elif self.has_right_child():
-            return self.right.find_successor()
+            return self
+
+    def find_successor(self):
+        if self.has_both_children():
+
 
     def delete(self):
         if self.is_leaf():
