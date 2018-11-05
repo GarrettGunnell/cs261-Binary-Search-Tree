@@ -68,6 +68,12 @@ class BinarySearchTree:
         if self.has_right_child():
             self.right.inorder(list_)
 
+    def find_successor(self):
+        if self.is_leaf():
+            return self
+        elif self.has_right_child():
+            return self.right.find_successor()
+
     def delete(self):
         if self.is_leaf():
             if self.parent.left is self:
@@ -94,3 +100,4 @@ class BinarySearchTree:
                 self.parent.right = self.right
                 self.right.parent = self.parent
                 del self
+        # elif self.has_right_child() and self.has_left_child():

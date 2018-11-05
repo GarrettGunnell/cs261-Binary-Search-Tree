@@ -236,6 +236,22 @@ class TestBinarySearchTree(unittest.TestCase):
 
         self.assertEqual(bst.right, child2)
 
+    def test_find_minimum(self):
+        '''
+        A Binary Search Tree can find its minimum value.
+        '''
+
+        bst = BinarySearchTree(50)
+        child = BinarySearchTree(25)
+        child2 = BinarySearchTree(20)
+        child3 = BinarySearchTree(15)
+
+        bst.insert(child)
+        bst.insert(child2)
+        bst.insert(child3)
+
+        self.assertEqual(child3, bst.find_minimum())
+
     def test_delete_root_with_two_children(self):
         '''
         A Binary Search Tree with two children will find a successor to replace itself.
