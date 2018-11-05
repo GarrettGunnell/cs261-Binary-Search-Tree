@@ -91,10 +91,10 @@ class BinarySearchTree:
 
     def delete(self):
         if self.is_leaf():
-            if self.parent.left is self:
+            if self.is_left_child():
                 self.parent.left = None
                 del self
-            elif self.parent.right is self:
+            elif self.is_right_child():
                 self.parent.right = None
                 del self
         elif self.has_left_child() and self.right is None:
