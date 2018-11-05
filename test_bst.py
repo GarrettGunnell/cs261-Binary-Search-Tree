@@ -277,7 +277,9 @@ class TestBinarySearchTree(unittest.TestCase):
             bst.insert(BinarySearchTree(i))
 
         bst.find(50).delete()
+        bst.find(150).delete()
         self.assertEqual(bst.find(70), bst.left)
+        self.assertEqual(bst.find(160), bst.right)
 
 
 if __name__ == '__main__':

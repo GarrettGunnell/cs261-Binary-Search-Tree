@@ -21,6 +21,12 @@ class BinarySearchTree:
     def is_leaf(self):
         return self.right is None and self.left is None
 
+    def is_left_child(self):
+        return self.parent.left is self
+
+    def is_right_child(self):
+        return self.parent.right is self
+
     def insert(self, child):
         if child.value > self.value:
             if self.right is None:
@@ -109,4 +115,13 @@ class BinarySearchTree:
                 self.parent.right = self.right
                 self.right.parent = self.parent
                 del self
-        # elif self.has_right_child() and self.has_left_child():
+        elif self.has_both_children():
+            successor = self.find_successor()
+
+            if successor.is_leaf():
+                successor.parent.left = None
+            elif successor.has_right_child():
+                successor.parent.left = successor.right
+                successor.right.parent = successor.parent
+
+            self.value = successor.value
