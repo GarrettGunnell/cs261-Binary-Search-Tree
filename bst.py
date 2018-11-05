@@ -15,6 +15,9 @@ class BinarySearchTree:
     def has_right_child(self):
         return self.right is not None
 
+    def has_both_children(self):
+        return self.right is not None and self.left is not None
+
     def is_leaf(self):
         return self.right is None and self.left is None
 
@@ -78,7 +81,7 @@ class BinarySearchTree:
 
     def find_successor(self):
         if self.has_both_children():
-
+            return self.right.find_minimum()
 
     def delete(self):
         if self.is_leaf():
