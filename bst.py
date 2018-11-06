@@ -48,7 +48,7 @@ class BinarySearchTree:
             return self
         elif self.is_leaf():
             return None
-        elif value > self.value:
+        elif value >= self.value:
             return self.right.find(value)
         elif value < self.value:
             return self.left.find(value)
