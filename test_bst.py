@@ -62,6 +62,17 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.insert(insertee)
         self.assertEqual(insertee, bst.right)
 
+    def test_insert_equivalent_values_on_right(self):
+        '''
+        A root inserts values equal to itself on the right.
+        '''
+
+        bst = BinarySearchTree(50)
+        insertee = BinarySearchTree(50)
+        bst.insert(insertee)
+
+        self.assertEqual(insertee, bst.right)
+
     def test_insert_values_under_children(self):
         '''
         If a root already has children, the child will insert instead
@@ -268,7 +279,7 @@ class TestBinarySearchTree(unittest.TestCase):
 
     def test_delete_root_with_two_children(self):
         '''
-        A Binary Search Tree with two children will find a successor to replace itself.
+        A Binary Search Tree with two children will find a successor to replace itself when deleted.
         '''
 
         values = [50, 150, 25, 10, 30, 75, 70, 80, 125, 110, 130, 175, 160, 200]

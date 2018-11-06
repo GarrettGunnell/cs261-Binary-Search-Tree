@@ -28,7 +28,7 @@ class BinarySearchTree:
         return self.parent.right is self
 
     def insert(self, child):
-        if child.value > self.value:
+        if child.value >= self.value:
             if self.right is None:
                 self.right = child
                 self.right.parent = self
